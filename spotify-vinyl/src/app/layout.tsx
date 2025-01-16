@@ -39,14 +39,19 @@ export default function RootLayout({
   }, [result]);
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col items-center justify-center gap-4 bg-neutral-900 text-white">
+      <body className="min-h-screen flex flex-col items-center justify-center gap-4 text-white">
         <Vinyl 
           isPlaying={isPlaying} 
           albumArt={result.albumImageUrl}
         />
-        <p className="text-lg font-medium">
-          {loading ? 'Loading...' : `${lastResult.title ? `Currently playing: ${result.title || lastResult.title}` : 'Nothing playing'}`}
-        </p>
+        <span className="text-center font-bold text-lg whitespace-pre-line">
+          {loading 
+            ? 'Loading...' 
+            : result.title || lastResult.title 
+              ? `Currently playing:\n${result.title || lastResult.title} by ${result.artist || lastResult.artist}` 
+              : 'Nothing playing'
+          }
+        </span>
         {children}
       </body>
     </html>

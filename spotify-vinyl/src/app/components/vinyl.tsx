@@ -18,25 +18,30 @@ const Vinyl = ({ isPlaying, albumArt, title, artist }: VinylProps) => {
     }, [isPlaying]);
     return (
         <div>
-            <figure id='vinyl' className={`transition-all duration-[3000ms] ${
-                isPlaying ? 'animate-spin-slow' : 'animate-spin-slowdown'
-            }`}>
-                <section className='bg-[#282828] rounded-full px-10 py-10'>
-                    <section className='bg-[#343434] w-fit h-fit rounded-full px-40 py-40'>
-                        {albumArt && (
-                            <img
-                                src={albumArt}
-                                alt="Album Art"
-                                className="relative w-32 h-32 rounded-full z-10"
-                            />
-                        )}
+            <figure id='vinyl' className={`transition-all duration-[3000ms] ${isPlaying ? 'animate-spin-slow' : 'animate-spin-slowdown'
+                }`}>
+                <section className='bg-gradient-to-b from-[#343434] to-[#282828] w-fit h-fit rounded-full px-10 py-10'>
+                    <section className='bg-gradient-to-b from-[#282828] to-[#343434] rounded-full px-10 py-10'>
+                        <section className='bg-gradient-to-b from-[#343434] to-[#282828] w-fit h-fit rounded-full px-10 py-10'>
+                            <section className='bg-gradient-to-b from-[#282828] to-[#343434] rounded-full px-10 py-10'>
+                                <section className='bg-gradient-to-b from-[#343434] to-[#282828] w-fit h-fit rounded-full px-10 py-10'>
+                                    {albumArt && (
+                                        <img
+                                            src={albumArt}
+                                            alt="Album Art"
+                                            className="relative w-[200px] h-[200px] rounded-full z-10"
+                                        />
+                                    )}
+                                </section>
+                            </section>
+                        </section>
                     </section>
                 </section>
             </figure>
             <figcaption className="text-center text-white mt-4">
-            <h3 className="text-sm font-bold">{title}</h3>
-            <p className="text-xs">{artist}</p>
-                </figcaption>
+                <h3 className="text-sm font-bold">{title}</h3>
+                <p className="text-xs">{artist}</p>
+            </figcaption>
         </div>
     );
 };
